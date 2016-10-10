@@ -23,7 +23,8 @@ app.use(function (ctx, next) {
     }, function (err, res) {
       next().then(function () {
         if (err) throw err
-        ctx.body = res
+        ctx.body = 'ok'
+        ctx.type = 'html'
       })
     })
   } else {
@@ -32,7 +33,7 @@ app.use(function (ctx, next) {
 })
 
 app.listen(port, () => {
-  console.log(`Server start listening on port ${port}, haha`)
+  console.log(`Server start listening on port ${port}`)
 })
 
 // github.post('/repos/tunnckoCore/nodeci-ghwebhooks/hooks', {
