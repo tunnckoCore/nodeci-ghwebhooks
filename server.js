@@ -1,8 +1,9 @@
 'use strict'
 
+var fs = require('fs')
 var GitHub = require('github-base')
 var github = new GitHub({
-  token: '1c3c415bfbc98ebffeec30b4777b6a14cadd38ae'
+  token: 'c532c2a8d1ffc511ed3e5ee2a555cf0db7169972'
 })
 
 var Koa = require('koa')
@@ -10,7 +11,7 @@ var port = process.env.PORT || 8080
 var app = new Koa()
 
 app.use(function (ctx, next) {
-  ctx.body = '<h1>Hello</h1>'
+  ctx.body = fs.createReadStream('./foo.html')
   ctx.type = 'html'
   return next()
 })
