@@ -11,5 +11,5 @@ app.use(function (ctx, next) {
 })
 
 app.listen(port, () => {
-  console.log(`Server start listening http://${host}:${port}`)
+  console.log(`Server start listening on port ${port}`)
 })
