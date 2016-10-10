@@ -1,0 +1,23 @@
+{
+  "name": "nodeci.io",
+  "version": "0.0.0",
+  "description": "Testing GitHub's Web Hooks API for NodeCI.io",
+  "repository": "tunnckoCore/create-readdir-stream",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=3"
+  },
+  "dependencies": {
+    "koa": "^2.0.0-alpha.7"
+  },
+  "devDependencies": {},
+  "files": [
+    "server.js"
+  ]
+}
