@@ -2,7 +2,7 @@
 
 var GitHub = require('github-base')
 var github = new GitHub({
-  token: 'a896d378bd09d09ffb1fd9368b2c2c0393506164'
+  token: '055d0a55da16a943505425824b028470d9688d22'
 })
 
 var Koa = require('koa')
@@ -17,25 +17,16 @@ app.use(function (ctx, next) {
 
 app.use(function (ctx, next) {
   if (ctx.url === '/webhooks') {
-    ctx.body = 'okkk'
-    ctx.type = 'html'
-    ctx.status = 200
-    next()
-    // github.post('/repos/tunnckoCore/nodeci-ghwebhooks/issues', {
-    //   title: 'foo bar ' + (new Date()),
-    //   body: 'posting from my dev machine.. herkou maybe: ' + (new Date()),
-    //   headers: {
-    //     'Accept': 'application/vnd.github.v3+json'
-    //   }
-    // }, function (err, res) {
-    //   if (err) {
-    //     ctx.body = 'err'
-    //   } else {
-    //     ctx.body = 'ok'
-    //   }
-    //   ctx.type = 'html'
-    //   next()
-    // })
+    github.post('/repos/tunnckoCore/nodeci-ghwebhooks/hooks/10259659/tests',
+    function (err, res) {
+      if (res.documentation_url) {
+        ctx.body = 'err'
+        return next()
+      }
+      ctx.body = JSON.stringify({foo: 'bar'}, null, 2)
+      console.log('res', res)
+      next()
+    })
   } else {
     return next()
   }
