@@ -21,10 +21,14 @@ app.use(function (ctx, next) {
       title: 'foo bar ' + (new Date()),
       body: 'posting from my dev machine.. herkou maybe: ' + (new Date())
     }, function (err, res) {
-      console.log(res)
+      next().then(function () {
+        if (err) throw err
+        ctx.body = res
+      })
     })
+  } else {
+    return next()
   }
-  return next()
 })
 
 app.listen(port, () => {
