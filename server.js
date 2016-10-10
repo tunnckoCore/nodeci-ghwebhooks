@@ -21,11 +21,13 @@ app.use(function (ctx, next) {
       title: 'foo bar ' + (new Date()),
       body: 'posting from my dev machine.. herkou maybe: ' + (new Date())
     }, function (err, res) {
-      next().then(function () {
-        if (err) throw err
+      if (err) {
+        ctx.body = 'err'
+      } else {
         ctx.body = 'ok'
-        ctx.type = 'html'
-      })
+      }
+      ctx.type = 'html'
+      next()
     })
   } else {
     return next()
