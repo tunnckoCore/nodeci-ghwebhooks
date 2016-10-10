@@ -32,7 +32,7 @@ app.use(function (ctx, next) {
 })
 
 app.listen(port, () => {
-  console.log(`Server start listening on port ${port}`)
+  console.log(`Server start listening on port ${port}, haha`)
 })
 
 // github.post('/repos/tunnckoCore/nodeci-ghwebhooks/hooks', {
