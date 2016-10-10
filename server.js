@@ -19,7 +19,10 @@ app.use(function (ctx, next) {
   if (ctx.url === '/webhooks') {
     github.post('/repos/tunnckoCore/nodeci-ghwebhooks/issues', {
       title: 'foo bar ' + (new Date()),
-      body: 'posting from my dev machine.. herkou maybe: ' + (new Date())
+      body: 'posting from my dev machine.. herkou maybe: ' + (new Date()),
+      headers: {
+        'Accept': 'application/vnd.github.v3+json'
+      }
     }, function (err, res) {
       if (err) {
         ctx.body = 'err'
